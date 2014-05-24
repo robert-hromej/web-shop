@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Category.delete_all
+categories = Category.create(
+    [
+        {title: 'Бюстгальтеры', active: true},
+        {title: 'Комплекты белья', active: true},
+        {title: 'Трусики ', active: true},
+    ]
+)
+
+Product.delete_all
+Product.create(
+    [
+        {title: 'Трусики стринг', category: categories[2], price: 12.234, active: true},
+        {title: 'Трусики слип', category: categories[2], price: 687.1, active: true},
+    ]
+)
+
+ProductOption.delete_all
+options = ProductOption.create([{title: 'Color'}, {title: 'Size'},])
+
+ProductParam.delete_all
+ProductParam.create(
+    [
+        {title: 'Red', product_option: options[0]},
+        {title: 'Blue', product_option: options[0]},
+        {title: 'Black', product_option: options[0]},
+
+        {title: 'S', product_option: options[1]},
+        {title: 'M', product_option: options[1]},
+        {title: 'L', product_option: options[1]},
+        {title: 'XXL', product_option: options[1]},
+    ]
+)
