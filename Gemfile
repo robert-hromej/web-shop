@@ -18,6 +18,10 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # gem 'formtastic', github: 'justinfrench/formtastic'
 # gem 'meta_search' #, '>= 1.1.0.pre'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'sqlite3'
   gem 'spring'
