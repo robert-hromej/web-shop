@@ -41,3 +41,4 @@ mysql2pgsql.yml
 
 lib/daemons/log/*
 *.rdb
+.heyBabbles/*
