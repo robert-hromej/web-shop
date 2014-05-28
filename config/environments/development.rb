@@ -38,6 +38,6 @@ Rails.application.configure do
 
   config.after_initialize do |app|
     app.assets.logger = Logger.new('/dev/null')
-    app.assets.debug = !true
+    # app.assets.debug = !true
   end
 end

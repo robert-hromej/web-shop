@@ -1,0 +1,15 @@
+<table>
+  <thead>
+  <th>Назва</th>
+  <th>Кількість</th>
+  </thead>
+  <% @categories.each do |category| %>
+      <tr>
+        <td> <%= link_to category.title, category_products_path(category) %></td>
+        <td><%= category.products.size %></td>
+
+      </tr>
+
+
+  <% end %>
+</table>

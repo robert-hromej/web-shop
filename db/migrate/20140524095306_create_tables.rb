@@ -70,5 +70,45 @@ class CreateTables < ActiveRecord::Migration
     end
     add_index :sizes, :title
 
+    # Items
+    create_table :product_items do |t|
+      t.integer :product_id, null: false
+      t.integer :size_id, null: false
+      t.integer :color_id, null: false
+      t.integer :amount
+
+      t.timestamps
+    end
+    add_index :product_items, :product_id
+    add_index :product_items, :size_id
+    add_index :product_items, :color_id
+    add_index :product_items, [:product_id, :size_id, :color_id], unique: true
+
+    # Cards
+    create_table :cards do |t|
+      t.integer :customer_id, null: false
+      t.float :cost
+      t.boolean :paid, default: false
+
+      t.timestamps
+    end
+
+    # CardItems
+    create_table :card_items do |t|
+      t.integer :card_id, null: false
+      t.integer :customer_id, null: false
+      t.integer :product_id, null: false
+      t.integer :size_id, null: false
+      t.integer :color_id, null: false
+      t.integer :amount
+      t.float :cost
+      t.float :sold_price
+      t.boolean :paid, default: false
+      t.timestamp :sold_at
+      t.text :data
+
+      t.timestamps
+    end
+
   end
 end
