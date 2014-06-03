@@ -23,6 +23,8 @@ ActiveAdmin.register Product do
           end
         end
       end
+
+      render partial: 'product_item_form', locals: {product: product}
     end
   end
 

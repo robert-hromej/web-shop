@@ -10,4 +10,9 @@ Rails.application.routes.draw do
 
   resources :products
 
+  resources :customers do
+    get :login, on: :collection
+    post :authorization, on: :collection
+  end
+
 end
